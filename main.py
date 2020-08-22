@@ -1,4 +1,19 @@
 from selenium import webdriver
+import platform
+
+y = platform.system()    # Find out the OS because different file paths
+if y == 'Windows':
+    browser = webdriver.Chrome(r"D:\pythonProject_Aug21\chromedriverWIN.exe")
+
+elif y == 'Darwin':
+    browser = webdriver.Chrome(r"/Volumes/BOOPC/pythonProject_Aug21/chromedriverOSX")
+
+# Enter the website URLs
+# Use <r""> to convert from normal string to raw string (used when exiting)
+LinkedInURL = r"https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
+FaceBookURL = r"https://www.facebook.com/"
+SpotifyURL = r"https://accounts.spotify.com/en/login?continue=https:%2F%2Fopen.spotify.com%2F"
+
 from selenium.webdriver.common.keys import Keys
 #!/usr/local/bin/python
 
@@ -28,14 +43,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 # postText = browser.find_element_by_xpath("/html/body/div[4]/div/div/div[2]/div/div[2]/div[2]/button/span")
 # postText.click()
 
-import platform
-y = platform.system()
-print(y)
 
-myString = "D:\pythonProject_Aug21\chromedriverWIN.exe"
-browser = webdriver.Chrome(myString)
-# if y == 'Windows':
-#     browser = webdriver.Chrome(r"\Users\Ennis\Downloads\chromedriver_win32\chromedriver.exe")
+
 #     # USE R to convert normal string to raw string, or put file path in a variable string
 # Ask the websites for trust certificate so no need for webistes, chrome stores in ones place so when u log in to chrome, it automaticly bypasses all of it
 # bypass/automate the authentication process with trust certificates
@@ -44,6 +53,11 @@ browser = webdriver.Chrome(myString)
 # If mac system, then open Chrome from hard drive
 # if y == 'Darwin':
 #     browser = webdriver.Chrome("/Volumes/BigBoi/Selenium_Project/chromedriverOSX")
-browser.get("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin")
-# # browser.send_keys(Keys.COMMAND + Keys.)
+browser.get(LinkedInURL)
+browser.implicitly_wait(3)
+# browser.execute_script("window.open('' + FaceBookURL, 'new window')")  # opens FB in new tab
+# browser.implicitly_wait(3)
+# body = browser.find_element_by_tag_name("body")
+# body.send_keys(Keys.CONTROL + 't')
+# browser.send_keys(Keys.COMMAND + Keys.t)
 # # browser.get("https://www.facebook.com/")
