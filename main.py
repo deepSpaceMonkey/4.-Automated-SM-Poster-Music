@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 #!/usr/local/bin/python
 
 from selenium.webdriver.support.ui import WebDriverWait
@@ -29,8 +30,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 import platform
 y = platform.system()
-print y
+print(y)
+
+myString = "D:\pythonProject_Aug21\chromedriverWIN.exe"
+browser = webdriver.Chrome(myString)
+# if y == 'Windows':
+#     browser = webdriver.Chrome(r"\Users\Ennis\Downloads\chromedriver_win32\chromedriver.exe")
+#     # USE R to convert normal string to raw string, or put file path in a variable string
+# Ask the websites for trust certificate so no need for webistes, chrome stores in ones place so when u log in to chrome, it automaticly bypasses all of it
+# bypass/automate the authentication process with trust certificates
+# have the program run from a phone instead of hard drive
 
 # If mac system, then open Chrome from hard drive
-if y == 'Darwin':
-     browser = webdriver.Chrome("/Volumes/BigBoi/Selenium_Project/chromedriver")
+# if y == 'Darwin':
+#     browser = webdriver.Chrome("/Volumes/BigBoi/Selenium_Project/chromedriverOSX")
+browser.get("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin")
+# # browser.send_keys(Keys.COMMAND + Keys.)
+# # browser.get("https://www.facebook.com/")
